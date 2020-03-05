@@ -19,8 +19,8 @@ view: receita_bloco {
           column_total_line_item_level_impressions,
           lag (column_total_line_item_level_impressions ) over (order by dimension_ad_unit_id , dimension_date) as total_level_impression_ant,
 
-          CASE WHEN lag (column_total_line_item_level_all_revenue / 1000000) over (order by dimension_ad_unit_id,dimension_date ) = 0 THEN 0 ELSE
-         round(( (column_total_line_item_level_impressions / 1000000 /lag (column_total_line_item_level_impressions/1000000 ) over (order by dimension_ad_unit_id,dimension_date ))-1)*100,2) end as variacao_total_level_impression
+          CASE WHEN lag (column_total_line_item_level_impressions / 1000000) over (order by dimension_ad_unit_id,dimension_date ) = 0 THEN 0 ELSE
+         round(( ((column_total_line_item_level_impressions / 1000000) /lag (column_total_line_item_level_impressions/1000000 ) over (order by dimension_ad_unit_id,dimension_date ))-1)*100,2) end as variacao_total_level_impression
 
 
           FROM `etusbg.dfp_publishers.receita_bloco`
