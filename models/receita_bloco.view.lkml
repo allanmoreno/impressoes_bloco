@@ -17,7 +17,7 @@ view: receita_bloco {
         round((( column_total_line_item_level_clicks / lag (column_total_line_item_level_clicks ) over (order by dimension_ad_unit_id ,dimension_date))-1)*100,2) end variacao_total_clicks,
 
           column_total_line_item_level_impressions,
-          lag (column_total_line_item_level_impressions ) over (order by dimension_ad_unit_id , dimension_date) as total_level_impression_ant,
+          lag (column_total_line_item_level_impressions ) over (order by dimension_ad_unit_id , dimension_date) as total_level_impr_ant,
 
           CASE WHEN lag (column_total_line_item_level_impressions / 1000000) over (order by dimension_ad_unit_id,dimension_date ) = 0 THEN 0 ELSE
          round(( ((column_total_line_item_level_impressions / 1000000) /lag (column_total_line_item_level_impressions/1000000 ) over (order by dimension_ad_unit_id,dimension_date ))-1)*100,2) end as variacao_total_level_impression
