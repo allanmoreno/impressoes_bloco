@@ -86,7 +86,7 @@ view: receita_bloco {
 
   measure: total_level_impression_ant {
     type: sum
-    sql: ${TABLE}.total_level_impression_ant ;;
+    sql: ${TABLE}.total_level_impressoes_ant ;;
   }
 
   measure: variacao_total_level_impression {
