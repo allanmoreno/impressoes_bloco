@@ -28,7 +28,7 @@ view: vw_impressoes {
     date  as date_sessoes,
     SUM(sessions) AS TOT_SESSOES
   FROM
-    `etusbg.ga.ga_total`
+    `etusbg.ga.ga_360_total`
   GROUP BY
     date
   ORDER BY
