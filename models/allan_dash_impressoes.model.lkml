@@ -11,3 +11,5 @@ include: vw_impressoes.view
 explore: vw_impressoes {label: "TB_IMPRESSOES"}
 include: impressoes_anuncio_bloco.view
 explore:  impressoes_anuncio_bloco {label: "tb_impressoes_anuncio_bloco"}
+include: receita_bloco.view
+explore: receita_bloco {label: "receita_bloco"}
