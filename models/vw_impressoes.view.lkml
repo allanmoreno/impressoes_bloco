@@ -7,6 +7,7 @@ view: vw_impressoes {
           ab.dimension_ad_unit_name,
           min(x.total_impressoes) total_impressoes,
           sum(ab.column_total_line_item_level_impressions) total_impressoes_2,
+          CAST(x.dimension_date AS TIMESTAMP) AS dimension_date,
           x.dimension_date AS data
 
         FROM
