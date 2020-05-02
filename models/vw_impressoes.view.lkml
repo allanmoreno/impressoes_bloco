@@ -26,7 +26,7 @@ view: vw_impressoes {
           5 DESC),
         SESSOES AS (
         SELECT
-        cast((date(timestamp(trim(CONCAT(SUBSTR(DATE, 1,4),"-", SUBSTR(DATE, 5,2),"-", SUBSTR(DATE, 7,2)))))) AS TIMESTAMP) as date_sessoes,
+        cast((date(timestamp(trim(CONCAT(SUBSTR(DATE, 1,4),"-", SUBSTR(DATE, 5,2),"-", SUBSTR(DATE, 7,2)))))) AS DATA) as date_sessoes,
         COUNT(DISTINCT CONCAT(fullVisitorId, CAST(visitStartTime AS STRING))) tot_sessoes
         FROM
         `ga360-270104.197733498.ga_sessions_2020*`, UNNEST(hits) AS h
@@ -72,7 +72,7 @@ view: vw_impressoes {
       LEFT JOIN
         SESSOES S
       ON
-        CAST(D.data AS TIMESTAMP) = CAST(S.date_sessoes AS TIMESTAMP)
+        CAST(D.data AS DATE) = CAST(S.date_sessoes AS DATE)
         order by 5 desc
       --ORDER BY
       --  5 DESC
