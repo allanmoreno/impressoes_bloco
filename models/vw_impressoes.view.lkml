@@ -7,7 +7,7 @@ view: vw_impressoes {
           ab.dimension_ad_unit_name,
           min(x.total_impressoes) total_impressoes,
           sum(ab.column_total_line_item_level_impressions) total_impressoes_2,
-          x.dimension_date AS dimension_date,
+          x.dimension_date AS data,
 
         FROM
          (select dimension_date , dimension_ad_unit_id,sum(a.column_total_line_item_level_impressions ) total_impressoes from `ga360-270104.gam.pagina_anuncio_bloco` a
