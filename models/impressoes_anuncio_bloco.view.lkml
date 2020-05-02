@@ -1,7 +1,7 @@
 view: impressoes_anuncio_bloco {
   derived_table: {
     sql: select dimension_ad_unit_name,
-          CAST(dimension_date AS TIMESTAMP),
+          CAST(dimension_date AS TIMESTAMP) as dimension_date,
           dimension_hour,
           sum(column_total_line_item_level_impressions )  total_impressoes
           FROM
