@@ -71,7 +71,7 @@ view: vw_impressoes {
       LEFT JOIN
         SESSOES S
       ON
-        CAST(D.dimension_date AS TIMESTAMP) = CAST(S.date_sessoes AS TIMESTAMP)
+        CAST(D.data AS TIMESTAMP) = CAST(S.date_sessoes AS TIMESTAMP)
         order by 5 desc
       --ORDER BY
       --  5 DESC
