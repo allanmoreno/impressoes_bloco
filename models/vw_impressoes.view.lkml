@@ -43,7 +43,7 @@ view: vw_impressoes {
         FROM
           `ga360-270104.gam.pagina_anuncio_bloco` p
         WHERE
-          DATE(p.dimension_date) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)
+          DATE(CAST(p.dimension_date as TIMESTAMP)) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)
           AND CURRENT_DATE()
           --AND p.dimension_ad_unit_id  = 21894546418
         GROUP BY
