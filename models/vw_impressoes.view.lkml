@@ -25,14 +25,14 @@ view: vw_impressoes {
           5 DESC),
         SESSOES AS (
         SELECT
-        cast((date(timestamp(trim(CONCAT(SUBSTR(DATE, 1,4),"-", SUBSTR(DATE, 5,2),"-", SUBSTR(DATE, 7,2)))))) AS TIMESTAMP) as DATA,
-        COUNT(DISTINCT CONCAT(fullVisitorId, CAST(visitStartTime AS STRING))) Sessions
+        cast((date(timestamp(trim(CONCAT(SUBSTR(DATE, 1,4),"-", SUBSTR(DATE, 5,2),"-", SUBSTR(DATE, 7,2)))))) AS TIMESTAMP) as date_sessoes,
+        COUNT(DISTINCT CONCAT(fullVisitorId, CAST(visitStartTime AS STRING))) tot_sessoes
         FROM
         `ga360-270104.197733498.ga_sessions_2020*`, UNNEST(hits) AS h
         WHERE
         h.type='PAGE'
         GROUP BY
-        DATA ),
+        date_sessoes ),
         ------
         IMPRESSOES_MEDIA AS(
         SELECT
