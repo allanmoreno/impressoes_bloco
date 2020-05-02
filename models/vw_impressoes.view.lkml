@@ -26,7 +26,7 @@ view: vw_impressoes {
           5 DESC),
         SESSOES AS (
         SELECT
-        cast((date(timestamp(trim(CONCAT(SUBSTR(DATE, 1,4),"-", SUBSTR(DATE, 5,2),"-", SUBSTR(DATE, 7,2)))))) AS DATA) as date_sessoes,
+        cast((date(timestamp(trim(CONCAT(SUBSTR(DATE, 1,4),"-", SUBSTR(DATE, 5,2),"-", SUBSTR(DATE, 7,2)))))) AS DATE) as date_sessoes,
         COUNT(DISTINCT CONCAT(fullVisitorId, CAST(visitStartTime AS STRING))) tot_sessoes
         FROM
         `ga360-270104.197733498.ga_sessions_2020*`, UNNEST(hits) AS h
