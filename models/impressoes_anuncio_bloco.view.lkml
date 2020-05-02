@@ -1,10 +1,14 @@
 view: impressoes_anuncio_bloco {
   derived_table: {
-    sql: select dimension_ad_unit_name,dimension_date ,dimension_hour,sum(column_total_line_item_level_impressions )  total_impressoes FROM
+    sql: select dimension_ad_unit_name,
+          CAST(dimension_date AS TIMESTAMP),
+          dimension_hour,
+          sum(column_total_line_item_level_impressions )  total_impressoes
+          FROM
           `ga360-270104.gam.pagina_anuncio_bloco`
           group by dimension_ad_unit_name,dimension_date ,dimension_hour
           order by 2 desc,3
-       ;;
+             ;;
   }
 
   measure: count {
